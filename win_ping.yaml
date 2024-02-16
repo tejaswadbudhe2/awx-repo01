@@ -1,13 +1,13 @@
 ---
-- name: Ping test for linux clients
+- name: Ping test for windows clients
   hosts: all
   gather_facts: True
   become: yes
   become_method: runas
   become_user: administrator
 
-  vars_files:
-    - ./vars/ext_vars.yml
+  #vars_files:
+  # - ./vars/ext_vars.yml
   
   tasks:
     - name: ping
