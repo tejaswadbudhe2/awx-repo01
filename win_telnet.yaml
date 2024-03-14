@@ -1,16 +1,13 @@
 ---
-- name: Test Telnet Connectivity to Remote Instance
-  hosts: localhost
+- name: Test Connectivity to Remote EC2 VM using Netcat
+  hosts: all
   gather_facts: no
   tasks:
-    - name: Test Connection
-      wait_for:
-        host: 3.111.30.30
-        port: 3390
-        state: started
-        timeout: 10
-      register: tcp_connectivity_result
+    - name: Test TCP Connectivity to Remote EC2 VM using Netcat
+      shell: "nc -zv 3.111.30.30 3389"
+      register: connectivity_result
+      ignore_errors: yes  # Ignore errors since nc command may return non-zero exit code
 
-    - name: Display TCP Connectivity Result
+    - name: Display Connectivity Result
       debug:
-        var: tcp_connectivity_result
+        var: connectivity_result
