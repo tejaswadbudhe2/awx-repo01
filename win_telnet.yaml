@@ -6,7 +6,7 @@
     - name: Test Connection
       wait_for:
         host: 3.111.30.30
-        port: 3389
+        port: 3390
         state: started
         timeout: 10
       register: tcp_connectivity_result
