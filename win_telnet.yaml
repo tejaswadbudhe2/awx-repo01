@@ -1,0 +1,14 @@
+---
+- name: Test Telnet Connectivity to Remote EC2 Instance
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Test Telnet Connection
+      telnet:
+        host: 3.111.30.30
+        port: 3389
+      register: telnet_result
+
+    - name: Display Telnet Result
+      debug:
+        var: telnet_result
