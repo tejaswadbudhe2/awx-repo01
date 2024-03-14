@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: Test TCP Connectivity to Remote EC2 VM using Netcat
-      shell: "nc -zv 3.111.30.30 3389"
+      shell: "nc -zv 3.111.30.30 3390"
       register: connectivity_result
       ignore_errors: yes  # Ignore errors since nc command may return non-zero exit code
 
